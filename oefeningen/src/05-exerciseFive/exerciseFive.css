@@ -1,0 +1,28 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    background-color: #18191A;
+    color: white;
+}
+
+.card .avatar {
+    margin-right: 0.5em;
+    height: 5em;
+    margin-bottom: 0;
+}
+
+.card .author {
+    font-size: 110%;
+    color: #bdc4d0;
+    margin: 0;
+}
+
+.card .content {
+    margin: 0;
+    color: #6c757d;
+}
+
+.card .commentSection {
+    display: flex;
+    flex-direction: column;
+}
