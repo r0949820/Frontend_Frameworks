@@ -1,0 +1,46 @@
+{
+  "name": "frontend_lecture4_example_start",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --fix ",
+    "preview": "vite preview",
+    "generate-types": "supabase gen types typescript --project-id vaolhgulafwfxgrqpngy --schema public > src/models/supabase.ts && eslint --fix src/models/supabase.ts"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@supabase/supabase-js": "^2.33.0",
+    "@tanstack/react-query": "^4.36.1",
+    "@uiw/react-markdown-preview": "^4.1.15",
+    "bootstrap": "^5.3.0",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
+    "react-dom": "^18.2.0",
+    "react-router-bootstrap": "^0.26.2",
+    "react-router-dom": "^6.15.0",
+    "styled-components": "^6.0.7",
+    "supabase": "^1.88.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-router-bootstrap": "^0.26.2",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "cypress": "^13.6.1",
+    "cypress-vite": "^1.5.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.9"
+  }
+}
