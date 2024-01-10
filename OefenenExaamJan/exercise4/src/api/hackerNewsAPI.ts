@@ -3,7 +3,7 @@ import {EndpointType} from '../models/IEndpoint.ts'
 import {IItem} from '../models/IItem.ts'
 import {useQuery, UseQueryResult} from '@tanstack/react-query'
 import {useContext} from 'react'
-import SettingContext from '../context/settingContext.ts'
+import SettingContext from '../context/settingContext.tsx'
 
 //region Mutations & queries
 
@@ -54,7 +54,7 @@ const client = axios.create({
  */
 const getItemIds = async (endpoint: EndpointType): Promise<number[]> => {
     const {data} = await client.get(
-        `${endpoint}`,
+        `${endpoint}.json`,
     )
     return data
 }
@@ -65,6 +65,7 @@ const getItemIds = async (endpoint: EndpointType): Promise<number[]> => {
  * @param id Het ID voor het item dat opgehaald moet worden.
  */
 const getItem = async (id: number): Promise<IItem> => {
+    await new Promise(r => setTimeout(r, 5000))
     const {data} = await client.get(
         `/item/${id}.json`,
     )

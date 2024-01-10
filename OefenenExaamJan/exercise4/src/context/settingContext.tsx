@@ -1,18 +1,19 @@
 import {createContext} from 'react'
 
-interface SettingContext {
+interface SettingContextProps {
     darkTheme: boolean
-    setDarkTheme: (newValue: boolean) => void
+    toggleDarkTheme: () => void
     refetchInterval: number
-    setRefetchInterval: (newValue: number) => void
+    setRefetchInterval: (newInterval: number) => void
 }
 
-const SettingContext = createContext({
+const SettingContext = createContext<SettingContextProps>({
     darkTheme: true,
-    setDarkTheme: () => {
+    refetchInterval: 5000,
+    toggleDarkTheme: () => {
         console.log('Not implemented')
     },
-    refetchInterval: 1000 * 60 * 5,
+
     setRefetchInterval: ()=> {
         console.log('Not implemented')
     }

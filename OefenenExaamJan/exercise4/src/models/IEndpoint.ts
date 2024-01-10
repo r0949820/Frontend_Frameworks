@@ -1,4 +1,4 @@
-export type EndpointType = 'topstories.json' | 'askstories.json' | 'showstories.json' | 'jobstories.json'
+export type EndpointType = 'topstories' | 'askstories' | 'showstories' | 'jobstories'
 
 export interface IEndpoint {
     id: number
