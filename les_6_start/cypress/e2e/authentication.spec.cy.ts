@@ -5,16 +5,25 @@ describe('Authentication', () => {
         cy.getByData('submit-btn').as('submit')
         cy.getByData('email').as('email')
         cy.getByData('password').as('password')
+
+        // Monitor network requests.
         cy.intercept('/auth/**').as('authRequest')
     })
 
     it(`Can't submit an empty form`, () => {
+        // Select the login form.
         cy.getByData('login-btn').click()
+
+        // Submit the form.
         cy.get('@submit').click()
+
+        // Wait to ensure that the website had enough time to execute the submit handler.
         cy.wait(500)
 
+        // Ensure that no HTTP requests were fired.
         cy.get('@authRequest.all').should('have.length', 0)
 
+        // Ensure that the user doesn't see any feedback.
         cy.getByData('success-message').should('not.exist')
         cy.getByData('error-message').should('not.exist')
     })
@@ -32,25 +41,6 @@ describe('Authentication', () => {
         cy.getByData('success-message').should('not.exist')
     })
 
-
-})
-
-describe('Create an account', () => {
-    beforeEach(() => {
-        cy.visit('/login')
-        cy.getByData('submit-btn').as('submit')
-        cy.getByData('email').as('email')
-        cy.getByData('password').as('password')
-    })
-
-    it(`Can't submit an empty form`, () => {
-        // Niet relevante code weggelaten
-    })
-
-    it(`Can't submit a password with fewer then 6 characters`, () => {
-        // Niet relevante code weggelaten
-    })
-
     it('Creates an account and is redirected to the notes page', () => {
         cy.deleteTestAccount()
         cy.getByData('signup-btn').click()
@@ -63,4 +53,3 @@ describe('Create an account', () => {
         cy.deleteTestAccount()
     })
 })
-
